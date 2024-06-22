@@ -1,0 +1,62 @@
+﻿
+@model IEnumerable<AshokPMS.web.Models.Category>
+
+<h2>Category Information</h2>
+<hr />
+<div class="row">
+	<div class="col-6">
+		<a class="btn btn-primary float-left mb-2" asp-action="AddEdit"><i class="bi bi-plus-circle"></i> Add New Category</a>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-12">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>
+						@Html.DisplayNameFor(p => p.CategoryName)
+					</th>
+
+					<th>
+						@Html.DisplayNameFor(p => p.CategoryDescription)
+					</th>
+
+					<th>
+						@Html.DisplayNameFor(p => p.IsActive)
+					</th>
+
+
+				</tr>
+
+			</thead>
+			<tbody>
+				@foreach (var items in Model)
+				{
+					<tr>
+						<td>
+							@items.CategoryName
+						</td>
+
+						<td>
+							@items.CategoryDescription
+						</td>
+
+
+
+						<td>
+							@items.IsActive
+						</td>
+
+						<td>
+							<a class="btn btn-outline-primary btn-sm" asp-action="AddEdit" asp-route-id="@items.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+							<a class="btn btn-outline-danger btn-sm" asp-action="Delete" onclick="return confirm('Are you sure you want to delete')" asp-route-id="@items.Id"><i class="bi bi-trash"></i> Delete</a>
+						</td>
+					</tr>
+				}
+			</tbody> 
+		</table>
+	</div>
+
+</div>

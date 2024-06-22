@@ -1,0 +1,201 @@
+﻿@model AshokPMS.web.Models.Product
+
+@{
+    ViewData["Title"] = "Product Management"; //Browser tab title
+
+    <!-- Display Content Box Title of the page ADD/EDIT based on model value-->
+    if (Model.Id > 0)
+    {
+        ViewData["ContentBoxTitle"] = "Update Product";
+    }
+    else
+    {
+        ViewData["ContentBoxTitle"] = "Add Product";
+    }
+}
+
+
+
+
+@if (Model.Id > 0)
+{
+    <div>
+        <h3>Edit Product Info</h3>
+    </div>
+}
+else
+{
+    <div>
+        <h3>Create Product Info</h3>
+    </div>
+}
+<hr>
+
+<form method="post" asp-action="AddEdit" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+
+    <div class="row">
+        <div class="col-10">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.CategoryInfos,"Id","CategoryName"))">
+                            <option value="null" selected disabled>-Choose-</option>
+                        </select>
+
+                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ProductName"></label>
+                        <input class="form-control" asp-for="ProductName" />
+                        <span asp-validation-for="ProductName"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ProductDescription"></label>
+                        <textarea class="form-control" asp-for="ProductDescription" ></textarea>
+                        <span class="text-danger" asp-validation-for="ProductDescription"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Manufacturer"></label>
+                        <input class="form-control" asp-for="Manufacturer" />
+                        <span class="text-danger" asp-validation-for="Manufacturer"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ProductionDate"></label>
+                        <input class="form-control" asp-for="ProductionDate" />
+                        <span class="text-danger" asp-validation-for="ProductionDate"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ExpiryDate"></label>
+                        <input class="form-control" asp-for="ExpiryDate" />
+                        <span class="text-danger" asp-validation-for="ExpiryDate"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BatchNo"></label>
+                        <input class="form-control" asp-for="BatchNo" />
+                        <span class="text-danger" asp-validation-for="BatchNo"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Price"></label>
+                        <input class="form-control" asp-for="Price" />
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <input class="form-check-input" type="checkbox" asp-for="IsActive">
+                        <label class="form-check-label" asp-for="IsActive">
+
+                        </label>
+                        <span asp-validation-for="IsActive" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-2">
+
+            <div class="image-uploaded">
+                @if (!string.IsNullOrEmpty(Model?.ImageUrl))
+                {
+                    <img src="/@Model.ImageUrl" id="userPhotos" class="img-thumbnail align-center" style="height:200px;width:180px;" onerror="this.src = '../images/photo.jpg';">
+                }
+                else
+                {
+                    <img id="userPhoto" src="~/images/photo.jpg" class="img-thumbnail align-center " style="height:200px;width:180px;">
+                }
+
+            </div>
+
+
+            <div class="input-group input-file mt-1">
+                <label class="input-group-btn ">
+                    <span class="btn btn-large btn-primary">
+                        Upload Photo
+                        <input asp-for="ImageFile" class="form-control" onchange="readURL(this)" style="display: none;" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary float-left mt-2">@((Model.Id > 0) ? "Update" : "Create")</button>
+                <a href="@Url.Action("Index", "Product")" class="btn btn-outline-primary btn-sm float-end mt-2"><i class="bi bi-arrow-left-circle"></i> Back to List</a>
+            </div>
+
+        </div>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                if ('@Model?.ImageUrl' == '') {
+                    reader.onload = function (e) {
+                        $('#userPhoto').attr('src', e.target.result);
+                    }
+                }
+                else {
+                    reader.onload = function (e) {
+                        $('#userPhotos').attr('src', e.target.result);
+                    }
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+}

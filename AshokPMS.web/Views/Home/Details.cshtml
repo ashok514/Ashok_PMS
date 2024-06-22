@@ -1,0 +1,114 @@
+﻿@model AshokPMS.web.Models.Product
+
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            <h2 class="card-title ">Product Details</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Name :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.ProductName</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Product Description :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.ProductDescription</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Manufacturer :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.Manufacturer</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Price :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.Price</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Production Date :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.ProductionDate</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Expiry Date :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.ExpiryDate</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Batch No :
+                        </div>
+                        <div class="col-md-8">
+                            <p>@Model.BatchNo</p>
+                        </div>
+                    </div>
+
+                  
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">
+                            Active:
+                        </div>
+                        <div class="col-md-8">
+                            <p>@(Model.IsActive ? "Yes" : "No")</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="mt-4">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="/@Model.ImageUrl" class="img-thumbnail" style="max-height:400px; max-width:200%;">
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <a asp-action="Index" class="btn btn-outline-primary"><i class="bi bi-arrow-left-circle"></i> Back to List</a>
+        </div>
+    </div>
+</div>

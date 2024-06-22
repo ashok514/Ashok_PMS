@@ -1,0 +1,14 @@
+D:\training project\AshokPMS.web\AshokPMS.Utility\bin\Debug\net8.0\AshokPMS.Utility.deps.json
+D:\training project\AshokPMS.web\AshokPMS.Utility\bin\Debug\net8.0\AshokPMS.Utility.runtimeconfig.json
+D:\training project\AshokPMS.web\AshokPMS.Utility\bin\Debug\net8.0\AshokPMS.Utility.dll
+D:\training project\AshokPMS.web\AshokPMS.Utility\bin\Debug\net8.0\AshokPMS.Utility.pdb
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.csproj.AssemblyReference.cache
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.AssemblyInfoInputs.cache
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.AssemblyInfo.cs
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.csproj.CoreCompileInputs.cache
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.dll
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\refint\AshokPMS.Utility.dll
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.pdb
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\AshokPMS.Utility.genruntimeconfig.cache
+D:\training project\AshokPMS.web\AshokPMS.Utility\obj\Debug\net8.0\ref\AshokPMS.Utility.dll

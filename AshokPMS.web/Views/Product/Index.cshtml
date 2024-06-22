@@ -1,0 +1,93 @@
+﻿@model IEnumerable<AshokPMS.web.Models.Product>
+
+<h2>Product Information</h2>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <a class="btn btn-primary float-left mb-2" asp-action="AddEdit"><i class="bi bi-plus-circle"></i> Add New Product</a>
+    </div>
+
+</div>
+<div class="container-fluid">
+<div class="row col-12">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(p => p.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.ProductDescription)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(p => p.CategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.Manufacturer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.ProductionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.ExpiryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.BatchNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(p => p.Price)
+                </th>
+
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var items in Model)
+            {
+                <tr>
+
+                    <td>
+                        @items.ProductName
+                    </td>
+
+                    <td>
+                        @items.ProductDescription
+                    </td>
+                    <td>
+                        @items.Category.CategoryName
+                    </td>
+                    <td>
+                        @items.Manufacturer
+                    </td>
+                    <td>
+                        @items.ProductionDate
+                    </td>
+                    <td>
+                        @items.ExpiryDate
+                    </td>
+                    <td>
+                        @items.BatchNo
+                    </td>
+                    <td>
+                        @items.Price
+                    </td>
+
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm" asp-action="AddEdit" asp-route-id="@items.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" onclick="return confirm('Are you sure you want to delete')" asp-route-id="@items.Id"><i class="bi bi-trash"></i> Delete</a>
+                    </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+
+</div>
+</div>
